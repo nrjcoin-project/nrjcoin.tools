@@ -3,7 +3,7 @@ nrjcoin.tools
 
 nrjcoin toolset for automation nrjcoin server
 
-'''shell
+```shell
 usage: nrjtool -asUubir
 -a: all
 -s: setup nrjcoin user
@@ -15,11 +15,13 @@ usage: nrjtool -asUubir
 -t: start/restart nrjcoind in testnet
 example: "nrjtool -a" to setup a fresh machine
 example: "nrjtool -ubir" to fetch src, build and install nrjcoind
-'''
+```
 
-change config files
+change config files! 
 
-'''ini
+_DO_NOT_USE_THIS_CONFIG_OR_YOU_WILL_GET_ROBBED_
+
+```ini
 testnet=0
 rpcuser=%user%
 rpcpassword=%password%
@@ -29,4 +31,6 @@ listen=1
 daemon=1
 gen=1
 rpcallowip=127.0.0.1
-'''
+```
+
+
