@@ -3,14 +3,15 @@
 srcdir=~/nrjcoin
 gitrepository=https://github.com/nrjcoin-project/nrjcoin.git
 user=nrjcoin
-confdir=/home/$user/.nrjcoin
-installdir=/home/$user/bin
+home=/home/$user
+confdir=$home/.nrjcoin
+installdir=$home/bin
 
 usage() {
 	echo "usage: ${0##*/} -asUubir"
 	echo "-a: all"
 	echo "-s: setup nrjcoin user"
-	echo "-U: install/update system and dependencies"
+	echo "-U: update/upgrade system and install/update dependencies"
 	echo "-u: install/update nrjcoin src"
 	echo "-b: build nrjcoind"
 	echo "-i: install nrjcoind"
@@ -96,8 +97,6 @@ setup() {
 	sudo -u $user mkdir -p $confdir
 }
 
-# update system
-# install dependencies
 updatesystem() {
 	sudo apt-get -y update 
 	sudo apt-get -y upgrade
@@ -112,8 +111,8 @@ updatesystem() {
 				libminiupnpc-dev
 }
 
-# clone or update git repository
-# XXX should relay on ssh pub key auth in the future
+# XXX setup ssh pub key auth to use
+#     this a noniteractive fashion
 updatesrc() {
 	if [ -d $srcdir ]; then
 		cd $srcdir
@@ -123,7 +122,6 @@ updatesrc() {
 	fi
 }
 
-# build nrjcoind
 build() {
 	cd $srcdir/src
 	make -f makefile.unix USE_UPNP=1 USE_QRCODE=1 USE_IPV6=1

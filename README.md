@@ -7,7 +7,7 @@ nrjcoin toolset for automation nrjcoin server
 usage: nrjtool -asUubir
 -a: all
 -s: setup nrjcoin user
--U: install/update system and dependencies
+-U: update/upgrade system and install/update dependencies
 -u: install/update nrjcoin src
 -b: build nrjcoind
 -i: install nrjcoind
