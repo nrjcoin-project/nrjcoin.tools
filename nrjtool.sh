@@ -124,6 +124,7 @@ updatesrc() {
 
 build() {
 	cd $srcdir/src
+	chmod 775 leveldb/build_detect_platform
 	make -f makefile.unix USE_UPNP=1 USE_QRCODE=1 USE_IPV6=1
 	strip nrjcoind
 }
